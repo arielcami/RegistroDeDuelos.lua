@@ -75,19 +75,18 @@ end ----------------------------------------------------------------------------
 
 local function Eluna_Reload (e)--------------------------------------
     CharDBExecute("CREATE TABLE IF NOT EXISTS `aa_registroDuelos` ("
-        .."`p_guid`         INT(10) NOT NULL,"
-        .."`nombre`         VARCHAR(10) NOT NULL,"
-        .."`ganados`        INT(10) NOT NULL DEFAULT 0,"
-        .."`perdidos`       INT(10) NOT NULL DEFAULT 0,"
-        .."`c_nombre`       VARCHAR(10) NOT NULL,"
-        .."`c_guid`         INT(10) NOT NULL,"
-        .."`totalDuelos`    INT(10) NOT NULL DEFAULT 0)")    
+        .."`p_guid`         MEDIUMINT UNSIGNED NOT NULL,"
+        .."`nombre`         VARCHAR(16) NOT NULL,"
+        .."`ganados`        MEDIUMINT UNSIGNED NOT NULL DEFAULT 0,"
+        .."`perdidos`       MEDIUMINT UNSIGNED NOT NULL DEFAULT 0,"
+        .."`c_nombre`       VARCHAR(16) NOT NULL,"
+        .."`c_guid`         MEDIUMINT UNSIGNED NOT NULL,"
+        .."`totalDuelos`    MEDIUMINT UNSIGNED NOT NULL DEFAULT 0)")    
 end------------------------------------------------------------------
 
 local function Saludo (E,P,U) -------------------------------------------------------------------------------------------------------------------
     P:GossipClearMenu()
-	P:GossipMenuAddItem(8, 'Consultar registros de duelos', 10, 1, true, 'Ingresa el nombre de la persona con la que tienes duelos registrados.')
-	--P:GossipMenuAddItem(3, 'Quiero otros encantamientos...', 200, 200)
+	P:GossipMenuAddItem(0, 'Consultar registros de duelos', 10, 1, true, 'Ingresa el nombre de la persona con la que tienes duelos registrados.')
 	P:GossipSendMenu(1, U, MenuId)
 end ---------------------------------------------------------------------------------------------------------------------------------------------
 
